@@ -19,7 +19,6 @@ args = parser.parse_args()
 
 if args.large is None and args.small is None:
 	parser.print_help()
-
 if args.large:
 	long_sequences = []
 	with open(args.file, "r") as handle:
@@ -27,6 +26,7 @@ if args.large:
 			if len(record) >= args.large:
 				long_sequences.append(record)				
 	SeqIO.write(long_sequences, args.output, "fasta")
+	handle.close
 if args.small:
 	short_sequences = []
 	with open(args.file, "r") as handle:
@@ -34,3 +34,4 @@ if args.small:
 			if len(record) <= args.small:
 				short_sequences.append(record)
 	SeqIO.write(short_sequences, args.output, "fasta")
+	handle.close
