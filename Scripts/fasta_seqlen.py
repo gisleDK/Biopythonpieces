@@ -14,3 +14,4 @@ args = parser.parse_args()
 with open(args.file, "r") as handle:
 	for record in SeqIO.parse(handle, "fasta") :
 		print(record.id, len(record))
+	handle.close
