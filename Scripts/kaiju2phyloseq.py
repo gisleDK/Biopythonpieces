@@ -13,7 +13,7 @@ import Bio
 import glob
 import pandas
 import subprocess
-
+import sys
 
 parser = argparse.ArgumentParser(description='Prints fasta entries lenght')
 parser.add_argument("-i", "--indir", required = True, 
@@ -26,7 +26,9 @@ parser.add_argument("-t", "--threads", default=1, required = False,
 					help="Input amount of available cores")
 parser.add_argument("-o", "--output", required = True, 
 					help="Basename for output files")
-parser.parse_args()
+if len(sys.argv)==1:
+    parser.print_help(sys.stderr)
+    sys.exit(1)
 args = parser.parse_args()
 
 # First, we will add taxonomical names to the kaiju output using kaiju-addTaxonNames
