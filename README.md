@@ -1,2 +1,2 @@
 # Biopythonpieces
-User-friendly bioinformatical tools made using mainly Python and R
+An attempt at user-friendly bioinformatical tools made using mainly Python and R. Very much a work in progress.
