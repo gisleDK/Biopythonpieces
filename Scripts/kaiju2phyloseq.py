@@ -77,7 +77,7 @@ for sample in otumatrix:
 	otu_file.write('\t' + sample)
 otu_file.write('\n')
 # Add header to tax_file
-otu_file.write('\tDomain\tPhylum\tClass\tOrder\tFamily\tGenus\tSpecies\n')
+tax_file.write('\tDomain\tPhylum\tClass\tOrder\tFamily\tGenus\tSpecies\n')
 # Adds OTUs rows
 for otu in otus:
 	otu_file.write("OTU" + str(counter).zfill(5))
