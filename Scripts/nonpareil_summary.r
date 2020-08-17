@@ -8,7 +8,7 @@
 ##
 ## Author: Gisle Vestergaard
 ##
-## Date Created: 2020-06-01
+## Date Created: 06-01-2020
 ##
 ## Email: gisves@dtu.dk
 ##
