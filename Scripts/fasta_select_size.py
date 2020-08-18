@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # Made for Python 3.7
+# V1.00 Written by Gisle Vestergaard (gislevestergaard@gmail.com)
+# From a concatenated fasta file, this script extracts fasta entries according to size requirements.
 
 import argparse
 import Bio
