@@ -14,6 +14,7 @@ import glob
 import pandas
 import subprocess
 import sys
+import os
 
 parser = argparse.ArgumentParser(description='Prints fasta entries lenght')
 parser.add_argument("-i", "--indir", required = True, 
@@ -81,7 +82,7 @@ tax_file.write('\tDomain\tPhylum\tClass\tOrder\tFamily\tGenus\tSpecies\n')
 # Adds OTUs rows
 for otu in otus:
 	otu_file.write("OTU" + str(counter).zfill(5))
-	tax_file.write("OTU" + str(counter).zfill(5) + "\t" + "\t".join(otu.split(";")) + "\n")
+	tax_file.write("OTU" + str(counter).zfill(5) + "\t" + "\t".join(otu.split(";")).rstrip() + "\n")
 	counter = counter+1
 	for sample in otumatrix:	
 		if otu in otumatrix[sample]:
