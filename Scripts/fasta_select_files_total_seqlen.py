@@ -1,5 +1,9 @@
 #!/usr/bin/env python
 # Made for Python 3.7
+# V1.00 Written by Gisle Vestergaard (gislevestergaard@gmail.com)
+# This script will sum the total sequence length of each .fna file in a directory and 
+# select according to size criteria provided using flags -L and -S, the >= or <= total 
+# length respectively.
 
 import argparse
 import Bio
