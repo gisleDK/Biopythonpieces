@@ -109,7 +109,7 @@ cogcats.flatten!.uniq!
 
 # Write seed summary
 File.open(options[:seed_file], 'w') do |file|
-  file.print("Sample\t", seeds.join("\t"), "\n")
+  file.print(seeds.join("\t"), "\n")
   counts.each do |sample, data|
     file.print(sample, "\t")
     seeds.each do |seed|
@@ -125,7 +125,7 @@ end
 # Write cog category summary
 
 File.open(options[:cat_file], 'w') do |file|
-  file.print("Sample\t", cogcats.join("\t"), "\n")
+  file.print(cogcats.join("\t"), "\n")
   cogcat_counts.each do |sample, data|
     file.print(sample, "\t")
     cogcats.each do |cog|
