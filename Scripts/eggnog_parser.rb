@@ -54,8 +54,6 @@ end
 # Use Bash to sum counts for each sample of seeds and cog categories
 files.each do |file|
   count       = []
-  seeds       = []
-  cogcat      = []
   seedhash    = {}
   cogcathash  = {}
   cogcatcount = {}
