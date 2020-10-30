@@ -1,8 +1,4 @@
 #!/usr/bin/env ruby
-# Made using Ruby 2.6.6p146
-# V1.00 Written by Gisle Vestergaard (gislevestergaard@gmail.com)
-# This takes a directory with eggnog-mapper output files and 
-# a tabulated output
 
 require 'pp'
 require 'optparse'
@@ -107,14 +103,14 @@ cogcats.flatten!.uniq!
 
 # Write seed summary
 File.open(options[:seed_file], 'w') do |file|
-  file.print(seeds.join("\t"), "\n")
+  file.print("\t", seeds.join("\t"), "\n")
   counts.each do |sample, data|
-    file.print(sample, "\t")
+    file.print(sample)
     seeds.each do |seed|
       if data.key?(seed)
-        file.print(data[seed], "\t")
+        file.print("\t", data[seed])
       else
-        file.print("0\t")
+        file.print("\t0")
       end
     end
     file.print("\n")
@@ -123,14 +119,14 @@ end
 # Write cog category summary
 
 File.open(options[:cat_file], 'w') do |file|
-  file.print(cogcats.join("\t"), "\n")
+  file.print("\t", cogcats.join("\t"), "\n")
   cogcat_counts.each do |sample, data|
-    file.print(sample, "\t")
+    file.print(sample)
     cogcats.each do |cog|
       if data.key?(cog)
-        file.print(data[cog], "\t")
+        file.print("\t", data[cog])
       else
-        file.print("0\t")
+        file.print("\t0")
       end
     end
     file.print("\n")
