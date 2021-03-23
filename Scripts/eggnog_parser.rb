@@ -77,10 +77,10 @@ files.each do |file|
   keggpathhash  = {}
   keggpathcount = {}
   if options[:uniq]
-  	sumseeds = `cat #{file} | grep -v '^#' | cut -f 1,2 | sort -u | cut -f 2 | sort | uniq -c`
-  	sumcogcats = `cat #{file} | grep -v '^#' | cut -f 1,10 | sort -u | cut -f 2 | sed -e $'s/, /\\\n/g' | sed '/^$/d' | sort | uniq -c`
-  	sumkeggs = `cat #{file} | grep -v '^#' | cut -f 1,15 | sort -u | cut -f 2 | sed -e $'s/ko://g' | sed -e $'s/,/\\\n/g' | sort | uniq -c | sed 's/-$/nil/g'`
-    sumkeggpaths = `cat #{file} | grep -v '^#' | cut -f 1,16 | sort -u | cut -f 2 | sed -e $'s/,/\\\n/g' | sort | uniq -c | sed 's/-$/nil/g'`
+  	sumseeds = `cat #{file} | grep -v '^#' | cut -f 1,2 | sed 's/_[1-2]_0\t/\t/g' | sort -u | cut -f 2 | sort | uniq -c`
+  	sumcogcats = `cat #{file} | grep -v '^#' | cut -f 1,10 | sed 's/_[1-2]_0\t/\t/g' | sort -u | cut -f 2 | sed -e $'s/, /\\\n/g' | sed '/^$/d' | sort | uniq -c`
+  	sumkeggs = `cat #{file} | grep -v '^#' | cut -f 1,15 |  sed 's/_[1-2]_0\t/\t/g' | sort -u | cut -f 2 | sed -e $'s/ko://g' | sed -e $'s/,/\\\n/g' | sort | uniq -c | sed 's/-$/nil/g'`
+    sumkeggpaths = `cat #{file} | grep -v '^#' | cut -f 1,16 |  sed 's/_[1-2]_0\t/\t/g' | sort -u | cut -f 2 | sed -e $'s/,/\\\n/g' | sort | uniq -c | sed 's/-$/nil/g'`
   else
   	sumseeds = `cat #{file} | grep -v '^#' | cut -f 2 | sort | uniq -c`
   	sumcogcats = `cat #{file} | grep -v '^#' | cut -f 10 | sed '/^$/d' | sed -e $'s/, /\\\n/g' | sort | uniq -c`
